@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.britenet.consoleapp.service.DatabaseService;
 import pl.britenet.consoleapp.service.ProductService;
+import pl.britenet.consoleapp.service.UserService;
 
 @Configuration
 public class APIConfig {
@@ -19,6 +20,11 @@ public class APIConfig {
     @Bean
     public ProductService getProductService() {
         return new ProductService(this.databaseService);
+    }
+
+    @Bean
+    public UserService getUserService() {
+        return new UserService(this.databaseService);
     }
 
 }
